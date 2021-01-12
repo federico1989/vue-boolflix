@@ -12,11 +12,18 @@
 let app = new Vue({
   el: "#root",
   data: {
-	  film: "",
-	
-
+	  mySearch: "",
+	  movies:"",
+	  myApiKey:"7590ffcc8dd999cadeff1cfe7fcd8fc4"
   },
-
-
+  methods: {
+	  clickSearch(){
+	  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.myApiKey}&query=${this.mySearch}`)
+	  .then(response => {
+		//console.log(response);
+		  this.movies = response.data.results;
+	  });
+	}
+  }
 
 });

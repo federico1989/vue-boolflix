@@ -8,8 +8,19 @@
     </head>
     <body>
         <div id="root">
-            <input v-model="film" type="text">
-            <button>Invia</button>
+            <header>
+                <input v-model="mySearch" type="text">
+                <button @click="clickSearch">Invia</button>
+            </header>
+            <div class="">
+                <div class="" v-for="movie in movies">
+                    <img :src="movie.poster_path" alt="">
+                    <h3>{{movie.title}}</h3>
+                    <span class="original_title">{{movie.original_title}}</span>
+                    <span class="original_language">{{movie.original_language}}</span>
+                    <span class="vote_average">{{movie.vote_average}}</span>
+                </div>
+            </div>
         </div>
         
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
