@@ -16,6 +16,7 @@
             </header>
             <div class="">
                 <div class="" v-for="movie in movies">
+                    <img :src=`https://image.tmdb.org/t/p/w342/${movie.poster_path}` alt="">
                     <h3>{{movie.title}}</h3>
                     <span class="original_title">{{movie.original_title}}</span>
                     <span class="original_language">{{movie.original_language}}</span>
@@ -28,6 +29,7 @@
                     </span>
                 </div>
                 <div class="" v-for="serie in series">
+                    <img :src=`https://image.tmdb.org/t/p/w342/${serie.poster_path}` alt="">
                     <h3>{{serie.name}}</h3>
                     <span class="original_title">{{serie.original_name}}</span>
                     <span class="original_language">{{serie.original_language}}</span>
