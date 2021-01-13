@@ -17,13 +17,19 @@ let app = new Vue({
 	  myApiKey:"7590ffcc8dd999cadeff1cfe7fcd8fc4"
   },
   methods: {
-	  clickSearch(){
-	  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.myApiKey}&query=${this.mySearch}`)
+	clickSearch: function(){
+	  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.myApiKey}&language=it-US&query=${this.mySearch}`)
 	  .then(response => {
 		//console.log(response);
 		  this.movies = response.data.results;
+		  this.movies.forEach(element => {
+			let vote = Math.ceil(element.vote_average / 2);
+			// console.log(vote);
+			element.vote_average = vote;
+		  })
+
 	  });
-	}
+	},
   }
 
 });

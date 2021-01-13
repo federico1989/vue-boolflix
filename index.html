@@ -3,22 +3,27 @@
     <head>
         <meta charset="utf-8">
         <title>boolfix</title>
+        <link rel="shortcut icon" href="assets/img/logo.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
         <div id="root">
             <header>
-                <input v-model="mySearch" type="text">
+                <input v-model="mySearch" @keyup.enter="clickSearch" type="text">
                 <button @click="clickSearch">Invia</button>
             </header>
             <div class="">
                 <div class="" v-for="movie in movies">
-                    <img :src="movie.poster_path" alt="">
+                    <!-- <img :src="movie.poster_path" alt=""> -->
                     <h3>{{movie.title}}</h3>
                     <span class="original_title">{{movie.original_title}}</span>
                     <span class="original_language">{{movie.original_language}}</span>
                     <span class="vote_average">{{movie.vote_average}}</span>
+                    <span class="">
+                        <i v-for="star in movie.vote_average" class="fas fa-star"></i><i v-for="star in 5-movie.vote_average" class="far fa-star"></i>
+                    </span>
                 </div>
             </div>
         </div>
