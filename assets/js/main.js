@@ -13,8 +13,8 @@ let app = new Vue({
   el: "#root",
   data: {
 	  mySearch: "",
-	  movies:"",
 	  series:"",
+	  movies:"",
 	  myApiKey:"7590ffcc8dd999cadeff1cfe7fcd8fc4"
   },
   methods: {
@@ -27,27 +27,47 @@ let app = new Vue({
 			let vote = Math.ceil(element.vote_average / 2);
 			// console.log(vote);
 			element.vote_average = vote;
-			if (item.original_language == "en"){
-            item.original_language = "gb";
-          	} else if (item.original_language == "zh") {
-            item.original_language = "cn"
-          	} else if (item.original_language == "ko") {
-            item.original_language = "kr"
-         	 } else if(item.original_language == "vi"){
-            item.original_language = "vn";
-         	 }else if(item.original_language == "et"){
-            item.original_language = "ee";
-         	 }else if(item.original_language == "ja"){
-            item.original_language = "jp";
-         	 }else if(item.original_language == "da"){
-            item.original_language = "dk";
-         	 } else if(item.original_language == "hu"){
-            item.original_language = "ua";
-         	 }
-		
-
-		}
-	  });
+			if(element.original_language == "en"){
+            element.original_language = "us";
+          	}else if(element.original_language == "zh"){
+            element.original_language = "cn";
+          	}else if(element.original_language == "ko"){
+            element.original_language = "kr";
+         	 }else if(element.original_language == "vi"){
+            element.original_language = "vn";
+         	 }else if(element.original_language == "hu" || "et"){
+            element.original_language = "eu";
+          	}else if(element.original_language == "ja"){
+            element.original_language = "jp";
+         	 }else if(element.original_language == "da"){
+            element.original_language = "dk";
+			}  
+		  })
+		});
+		axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.myApiKey}&language=it-US&query=${this.mySearch}`)
+		.then(response => {
+			this.series = response.data.results;
+		  this.series.forEach(element => {
+			let vote = Math.ceil(element.vote_average / 2);
+			// console.log(vote);
+			element.vote_average = vote;
+			if(element.original_language == "en"){
+            element.original_language = "us";
+          	}else if(element.original_language == "zh"){
+            element.original_language = "cn";
+          	}else if(element.original_language == "ko"){
+            element.original_language = "kr";
+         	 }else if(element.original_language == "vi"){
+            element.original_language = "vn";
+         	 }else if(element.original_language == "hu" || "et"){
+            element.original_language = "eu";
+          	}else if(element.original_language == "ja"){
+            element.original_language = "jp";
+         	 }else if(element.original_language == "da"){
+            element.original_language = "dk";
+			}  
+		  })
+		});
 	},
   }
 
