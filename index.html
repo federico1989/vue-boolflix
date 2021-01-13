@@ -20,6 +20,10 @@
                     <h3>{{movie.title}}</h3>
                     <span class="original_title">{{movie.original_title}}</span>
                     <span class="original_language">{{movie.original_language}}</span>
+                    <span>
+                        <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png`>
+
+                    </span>
                     <span class="vote_average">{{movie.vote_average}}</span>
                     <span class="">
                         <i v-for="star in movie.vote_average" class="fas fa-star"></i><i v-for="star in 5-movie.vote_average" class="far fa-star"></i>
