@@ -13,12 +13,13 @@ let app = new Vue({
   el: "#root",
   data: {
 	  mySearch: "",
-	  series:"",
 	  movies:"",
+	  series:"",
 	  myApiKey:"7590ffcc8dd999cadeff1cfe7fcd8fc4"
   },
   methods: {
 	clickSearch: function(){
+		// Chiamata film
 	  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.myApiKey}&language=it-US&query=${this.mySearch}`)
 	  .then(response => {
 		//console.log(response);
@@ -44,6 +45,7 @@ let app = new Vue({
 			}  
 		  })
 		});
+		// Chiamata serie tv
 		axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.myApiKey}&language=it-US&query=${this.mySearch}`)
 		.then(response => {
 			this.series = response.data.results;

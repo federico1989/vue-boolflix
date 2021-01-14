@@ -11,32 +11,37 @@
     <body>
         <div id="root">
             <header>
-                <input v-model="mySearch" @keyup.enter="clickSearch" type="text">
-                <button @click="clickSearch">Invia</button>
-            </header>
-            <div class="">
-                <div class="" v-for="movie in movies">
-                    <img :src=`https://image.tmdb.org/t/p/w342/${movie.poster_path}` alt="">
-                    <h3>{{movie.title}}</h3>
-                    <span class="original_title">{{movie.original_title}}</span>
-                    <span class="original_language">{{movie.original_language}}</span>
-                    <span>
-                        <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png`>
-                    </span>
-                    <span class="vote_average">{{movie.vote_average}}</span>
-                    <span class="">
-                        <i v-for="star in movie.vote_average" class="fas fa-star"></i><i v-for="star in 5-movie.vote_average" class="far fa-star"></i>
-                    </span>
+                <div class="container d-flex">
+                    <img src="assets/img/logo.png" alt="logo"/>
+                    <div class="research d-flex">
+                        <input v-model="mySearch" @keyup.enter="clickSearch" type="text">
+                        <button @click="clickSearch">Invia</button>
+                    </div>
                 </div>
-                <div class="" v-for="serie in series">
-                    <img :src=`https://image.tmdb.org/t/p/w342/${serie.poster_path}` alt="">
+            </header>
+            <div class="catalog-container d-flex">
+                <div class="films d-flex" v-for="movie in movies">
+                    <div class="movie-poster d-flex">
+                        <img :src=`https://image.tmdb.org/t/p/w154/${movie.poster_path}` alt="">
+                    </div>
+                    <div class="overlay d-flex">
+                        <h3>{{movie.title}}</h3>
+                        <span class="original_title">{{movie.original_title}}</span>
+                        <span>
+                            <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png`>
+                        </span>
+                        <span class="">
+                            <i v-for="star in movie.vote_average" class="fas fa-star"></i><i v-for="star in 5-movie.vote_average" class="far fa-star"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="series d-flex" v-for="serie in series">
+                    <img :src=`https://image.tmdb.org/t/p/w154/${serie.poster_path}` alt="">
                     <h3>{{serie.name}}</h3>
                     <span class="original_title">{{serie.original_name}}</span>
-                    <span class="original_language">{{serie.original_language}}</span>
                     <span>
                         <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png`>
                     </span>
-                    <span class="vote_average">{{serie.vote_average}}</span>
                     <span class="">
                         <i v-for="star in serie.vote_average" class="fas fa-star"></i><i v-for="star in 5-serie.vote_average" class="far fa-star"></i>
                     </span>
