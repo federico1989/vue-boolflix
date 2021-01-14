@@ -20,31 +20,39 @@
                 </div>
             </header>
             <div class="catalog-container d-flex">
-                <div class="films d-flex" v-for="movie in movies">
-                    <div class="movie-poster d-flex">
-                        <img :src=`https://image.tmdb.org/t/p/w154/${movie.poster_path}` alt="">
-                    </div>
-                    <div class="overlay d-flex">
-                        <h3>{{movie.title}}</h3>
-                        <span class="original_title">{{movie.original_title}}</span>
-                        <span>
+                <div class="card" v-for="movie in movies">
+                    <img :src=`https://image.tmdb.org/t/p/original/${movie.poster_path}` v-if="movie.poster_path " alt="">
+                    <img src="assets/img/noimage.png" v-else alt="">
+                    <div class="overlay">
+                        <p class="m-top"><strong>Titolo: </strong>{{movie.title}}</p>
+                        <p><strong>Titolo originale: </strong>{{movie.original_title}}</p>
+                        <!-- <span>
                             <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png`>
-                        </span>
-                        <span class="">
+                        </span> -->
+                        <span><strong>Voto: </strong>
                             <i v-for="star in movie.vote_average" class="fas fa-star"></i><i v-for="star in 5-movie.vote_average" class="far fa-star"></i>
                         </span>
+                        <p v-if="movie.overview"><strong>Overview: </strong>{{movie.overview}}</p>
+                        <p v-else><strong>Overview: </strong>Non disponibile</p>
+
+
                     </div>
                 </div>
-                <div class="series d-flex" v-for="serie in series">
-                    <img :src=`https://image.tmdb.org/t/p/w154/${serie.poster_path}` alt="">
-                    <h3>{{serie.name}}</h3>
-                    <span class="original_title">{{serie.original_name}}</span>
-                    <span>
-                        <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png`>
-                    </span>
-                    <span class="">
-                        <i v-for="star in serie.vote_average" class="fas fa-star"></i><i v-for="star in 5-serie.vote_average" class="far fa-star"></i>
-                    </span>
+                <div class="card" v-for="serie in series">
+                    <img :src=`https://image.tmdb.org/t/p/original/${serie.poster_path}` v-if="serie.poster_path" alt="">
+                    <img src="assets/img/noimage.png" v-else alt="">
+                    <div class="overlay">
+                        <p class="m-top"><strong>Titolo: </strong>{{serie.name}}</p>
+                        <p><strong>Titolo originale: </strong>{{serie.original_name}}</p>
+                        <!-- <span>
+                            <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png`>
+                        </span> -->
+                        <span><strong>Voto: </strong>
+                            <i v-for="star in serie.vote_average" class="fas fa-star"></i><i v-for="star in 5-serie.vote_average" class="far fa-star"></i>
+                        </span>
+                        <p v-if="serie.overview"><strong>Overview: </strong>{{serie.overview}}</p>
+                        <p v-else><strong>Overview: </strong>Non disponibile</p>
+                    </div>
                 </div>
 
             </div>
