@@ -12,6 +12,12 @@ body {
 .d-flex {
     display: flex;
 }
+.m-top {
+    margin-top: 40px;
+}
+.m-bottom {
+    margin-bottom: 100px;
+}
 /* /utility */
 .container {
     height: 70px;
@@ -33,7 +39,7 @@ body {
 .card {
     margin-top: 20px;
     width: 250px;
-    border: 1px solid black;
+    border: 1px solid white;
     position: relative;
 }
 .card > img {
@@ -45,12 +51,18 @@ body {
     height: 100%;
     top: 0;
     left: 0;
+    padding: 40px 20px 60px 20px;
     overflow-y: scroll;
     display: none;
-    background: red;
+    background: black;
     position: absolute;
 }
 .card:hover .overlay{
     display: block;
-
+}
+.overlay > p, .overlay > span > strong {
+    color: white;
+}
+.overlay>span>.fas, .overlay > span > .far {
+    color: gold;
 }
