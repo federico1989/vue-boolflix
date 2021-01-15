@@ -30,13 +30,15 @@ let app = new Vue({
 			element.vote_average = vote;
 			if(element.original_language == "en"){
             element.original_language = "us";
-          	}else if(element.original_language == "zh"){
-            element.original_language = "cn";
-          	}else if(element.original_language == "ko"){
+          	}else if(element.original_language == "zh" || element.original_language == "hu"){
+			element.original_language = "cn";
+			}else if(element.original_language == "ko"){
             element.original_language = "kr";
+          	}else if(element.original_language == "sv"){
+            element.original_language = "se";
          	 }else if(element.original_language == "vi"){
             element.original_language = "vn";
-         	 }else if(element.original_language == "hu" || "et"){
+         	 }else if(element.original_language == "et"){
             element.original_language = "eu";
           	}else if(element.original_language == "ja"){
             element.original_language = "jp";
@@ -53,15 +55,23 @@ let app = new Vue({
 			let vote = Math.ceil(element.vote_average / 2);
 			// console.log(vote);
 			element.vote_average = vote;
-			if(element.original_language == "en"){
-            element.original_language = "us";
-          	}else if(element.original_language == "zh"){
+			if(element.origin_country == "GB" && element.origin_country == "US"){
+            element.original_language = "gb";
+          	}else if(element.origin_country == "GB"){
+			element.original_language = "gb";
+			}else if(element.origin_country == "US"){
+			element.original_language = "us";
+			}else if(element.original_language == "en"){
+            element.original_language = "gb";
+          	}else if(element.original_language == "zh" || element.original_language == "hu"){
             element.original_language = "cn";
           	}else if(element.original_language == "ko"){
             element.original_language = "kr";
-         	 }else if(element.original_language == "vi"){
+         	}else if(element.original_language == "sv"){
+            element.original_language = "se";
+         	}else if(element.original_language == "vi"){
             element.original_language = "vn";
-         	 }else if(element.original_language == "hu" || "et"){
+         	}else if(element.original_language == "et"){
             element.original_language = "eu";
           	}else if(element.original_language == "ja"){
             element.original_language = "jp";

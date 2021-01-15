@@ -22,14 +22,16 @@
             <div class="catalog-container d-flex">
                 <!-- Catalogo film -->
                 <div class="card" v-for="movie in movies">
+                    <div class="title-poster-null" v-if="movie.poster_path == null">
+                        <h4>{{movie.title}}</h4>
+                    </div>
                     <img :src=`https://image.tmdb.org/t/p/original/${movie.poster_path}` v-if="movie.poster_path " alt="">
                     <img src="assets/img/noimage.png" v-else alt="">
                     <div class="overlay">
                         <p><strong>Titolo: </strong>{{movie.title}}</p>
                         <p><strong>Titolo originale: </strong>{{movie.original_title}}</p>
-                        <!-- <span>
-                            <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png`>
-                        </span> -->
+                        <p><strong>Lingua originale: </strong><img :src=`https://www.countryflags.io/${movie.original_language}/flat/16.png`>
+                        </p>
                         <span><strong>Voto: </strong>
                             <i v-for="star in movie.vote_average" class="fas fa-star"></i><i v-for="star in 5-movie.vote_average" class="far fa-star"></i>
                         </span>
@@ -39,14 +41,16 @@
                 </div>
                 <!-- Catalogo serie tv -->
                 <div class="card" v-for="serie in series">
+                    <div class="title-poster-null" v-if="serie.poster_path == null">
+                        <h4>{{serie.name}}</h4>
+                    </div>
                     <img :src=`https://image.tmdb.org/t/p/original/${serie.poster_path}` v-if="serie.poster_path" alt="">
                     <img src="assets/img/noimage.png" v-else alt="">
                     <div class="overlay">
                         <p><strong>Titolo: </strong>{{serie.name}}</p>
                         <p><strong>Titolo originale: </strong>{{serie.original_name}}</p>
-                        <!-- <span>
-                            <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png`>
-                        </span> -->
+                        <p><strong>Lingua originale: </strong><img :src=`https://www.countryflags.io/${serie.original_language}/flat/16.png`>
+                        </p>
                         <span><strong>Voto: </strong>
                             <i v-for="star in serie.vote_average" class="fas fa-star"></i><i v-for="star in 5-serie.vote_average" class="far fa-star"></i>
                         </span>
