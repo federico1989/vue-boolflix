@@ -6,7 +6,7 @@
 }
 
 body {
-    background: grey;
+    background: black;
 }
 /* utility */
 .d-flex {
@@ -25,12 +25,44 @@ body {
     background: black;
     justify-content: space-between;
 }
-.container img {
-    height: 50px;
-    margin-top: 10px;
-}
-.research {
+.container .logo-container, .container .research {
     align-items: center;
+}
+.container .logo-container img {
+    height: 50px;
+}
+span {
+    color: white;
+}
+.container .research img {
+    height: 40px;
+}
+
+.container .research button {
+    color: white;
+    background-color: black;
+    border-style: none;
+    margin: 10px;
+}
+.container .research input {
+    background: transparent;
+    color: white;
+    border: none;
+    width: 50px;
+    margin-right: 20px;
+}
+.container .research span .fa-bell {
+    font-size: 20px;
+    margin-right: 20px;
+}
+.container .research input:focus {
+    outline: none;
+}
+::placeholder {
+    color: white;
+}
+.research img, .research .login {
+    margin-right: 20px;
 }
 .catalog-container {
     flex-wrap: wrap;
@@ -54,7 +86,7 @@ body {
     padding: 40px 20px 60px 20px;
     overflow-y: scroll;
     display: none;
-    background: black;
+    background: #2a2a2b;
     position: absolute;
 }
 .card:hover .overlay{

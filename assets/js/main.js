@@ -1,13 +1,8 @@
-// Milestone 1:
-// Creare un layout base con una searchbar (una input e un button) in cui possiamo
-// scrivere completamente o parzialmente il nome di un film. Possiamo, cliccando il
-// bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
-// Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori per ogni
-// film trovato:
-// 1. Titolo
-// 2. Titolo Originale
-// 3. Lingua
-// 4. Voto
+// Milestone 5 (Opzionale):
+// Partendo da un film o da una serie, richiedere all'API quali sono gli attori che fanno
+// parte del cast aggiungendo alla nostra scheda Film / Serie SOLO i primi 5 restituiti
+// dall’API con Nome e Cognome, e i generi associati al film con questo schema:
+// “Genere 1, Genere 2, …”.
 
 let app = new Vue({
   el: "#root",
@@ -34,6 +29,8 @@ let app = new Vue({
 			element.original_language = "cn";
 			}else if(element.original_language == "ko"){
             element.original_language = "kr";
+          	}else if(element.original_language == "hi"){
+            element.original_language = "in";
           	}else if(element.original_language == "sv"){
             element.original_language = "se";
          	 }else if(element.original_language == "vi"){
@@ -67,7 +64,9 @@ let app = new Vue({
             element.original_language = "cn";
           	}else if(element.original_language == "ko"){
             element.original_language = "kr";
-         	}else if(element.original_language == "sv"){
+         	}else if(element.original_language == "hi"){
+            element.original_language = "in";
+          	}else if(element.original_language == "sv"){
             element.original_language = "se";
          	}else if(element.original_language == "vi"){
             element.original_language = "vn";
@@ -82,5 +81,4 @@ let app = new Vue({
 		});
 	},
   }
-
 });

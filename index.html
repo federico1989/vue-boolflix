@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>boolfix</title>
+        <title>Boolflix</title>
         <link rel="shortcut icon" href="assets/img/logo.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -12,10 +12,16 @@
         <div id="root">
             <header>
                 <div class="container d-flex">
-                    <img src="assets/img/logo.png" alt="logo"/>
+                    <div class="logo-container d-flex">
+                        <img src="assets/img/logo.png" alt="logo"/>
+                    </div>
                     <div class="research d-flex">
-                        <input v-model="mySearch" @keyup.enter="clickSearch" type="text">
-                        <button @click="clickSearch">Invia</button>
+                        <button @click="clickSearch"><i class="fas fa-search"></i></button>
+                        <input v-model="mySearch" @keyup.enter="clickSearch" type="text" placeholder="Search">
+                        <span><i class="fas fa-bell" aria-hidden="true"></i></span>
+                        <img src="assets/img/avatar.png"alt="">
+                        <span class="login">Fede</span>
+                        <span><i class="fas fa-sort-down"></i></span>
                     </div>
                 </div>
             </header>
@@ -58,7 +64,6 @@
                         <p v-else><strong>Overview: </strong>Non disponibile</p>
                     </div>
                 </div>
-
             </div>
         </div>
         
